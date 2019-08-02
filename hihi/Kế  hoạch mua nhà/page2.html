@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="page2.css">
+  <style>
+ 
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="box-center">
+          <div class="content-title">
+            <div class="title-litle">
+              1 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
+
+            <div class="selection-choose">
+            <label class="title-mid">Vị trí bạn muốn mua</label>
+            <div class="content">
+              <textarea class="comment-box-input comment-box-input-child id1"  placeholder="Trả lời câu hỏi tại đây"></textarea>
+            </div>
+            <a class="nav-link" href="#section2"><button type="button" id="btn" class="btn btn-outline-danger"> ok <i class="fa fa-check" aria-hidden="true"></i></button></a>
+            </div>
+          </div>
+        </div>
+        <div class="box-center" id="section2">
+          <div class="content-title">
+            <div class="title-litle">
+              1 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
+            <div class="selection-choose">
+            <label class="title-mid">Vị trí bạn muốn mua</label>
+            <div class="content">
+              <textarea class="comment-box-input comment-box-input-child id1"  rows="1" placeholder="Trả lời câu hỏi tại đây"></textarea>
+            </div>
+             <a class="nav-link" href="#section3"><button type="button" id="btn" class="btn btn-outline-danger"> ok <i class="fa fa-check" aria-hidden="true"></i></button></a>
+            </div>
+          </div>
+        </div>
+        <div class="box-center" id="section3">
+          <div class="content-title">
+            <div class="title-litle">
+              1 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
+            <div class="selection-choose">
+            <label class="title-mid">Vị trí bạn muốn mua</label>
+            <div class="content">
+              <textarea class="comment-box-input comment-box-input-child id1" rows="1" placeholder="Trả lời câu hỏi tại đây"></textarea>
+            </div>
+            <button  type="button" class="btn btn-outline-danger"> ok <i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="btn-bot">
+        <button type="button" class="btn btn-outline-success">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+<!-- <div class="container-fluid">
+  <div class="final-end ">
+    <div class="text-up">
+     <p> <span>0</span> trên 3 câu trả lời.</p>
+     </div>
+    <div class="progress">
+     
+    <div id="demo" class="progress-bar" style="width:0%"></div>
+  </div>
+ -->
+ <nav class="navbar navbar-expand-sm fixed-bottom ">
+ 
+  <ul class="navbar-nav">
+     <p> <span>0</span> trên 3 câu trả lời.</p>
+       <div class="progress">
+     
+    <div id="demo" class="progress-bar" style="width:0%"></div>
+  </div>
+
+    <li class="nav-item">
+      <a class="nav-link" href=""> <button type="button" class="btn btn-info">  <i class="fa fa-arrow-up" aria-hidden="true"></i></button></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href=""><button type="button" class="btn btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></a>
+    </li>
+
+  </ul>
+</nav>
+</div>
+</div>
+
+<script type="text/javascript">
+  $("a[href*='#']:not([href='#])").click(function() {
+  let target = $(this).attr("href");
+  $('html,body').stop().animate({
+    scrollTop: $(target).offset().top
+  }, 200);
+  event.preventDefault();
+});
+
+
+var i = 0;
+var box_stt = 0;
+var max_box = 0;
+
+function scrollDown(list_box){
+  if( (box_stt + 1) <= (max_box - 1) ){
+      box_stt = box_stt + 1;
+      $('html,body').stop().animate({
+        scrollTop: $(list_box[box_stt]).offset().top - 300
+      }, 200);
+    }
+}
+function scrollUp(list_box){
+  if( box_stt >= 1  ){
+    box_stt = box_stt - 1;
+    $('html,body').stop().animate({
+      scrollTop: $(list_box[box_stt]).offset().top
+    }, 200);
+  }
+}
+function detectBoxStt(list_box_position){
+   var topWindow = $(window).scrollTop();
+   for(var st = 0; st < list_box_position.length; st++){
+      var position_current = list_box_position[st];
+      var postiion_next    = typeof list_box_position[(st+1)] != 'undefined' ? list_box_position[(st+1)] : 0;
+      if( topWindow >= position_current && ( topWindow < postiion_next || postiion_next == 0 ) ){
+          box_stt = st;
+      }
+  }
+ 
+}
+$(document).ready(function(){
+  $("button").one('click',function(){
+    $("span").text(i += 1);
+  });
+  $("textarea").one('keypress',function(){
+          $(".progress-bar").width("+=10%");
+         
+       });
+  
+  var list_box = $('.selection-choose');
+  max_box  = list_box.length;
+  
+  var list_box_position = [];
+  for(var st = 0; st < max_box; st++){
+      list_box_position.push[$(list_box[st]).offset().top];
+  }
+
+detectBoxStt(list_box_position);
+
+  $(document).on('keydown',function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        switch (code){
+          case 34:
+            //alert("Page down pressed");
+            break;
+          case 33:
+            alert("Page up pressed");
+            break;
+          case 40:
+
+            scrollDown(list_box);
+            break;
+          case 38:
+            scrollUp(list_box);
+            break;
+        }})
+});
+//   document.body.onkeyup = function(e) {
+//     var code = e.keyCode;
+//     if(code === 40) { // key code for j
+//         window.scrollTo(document.body.scrollLeft,
+//                         document.body.scrollTop += 200);
+//     }
+// };
+</script>
+</body>
+
+</html>

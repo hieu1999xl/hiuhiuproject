@@ -1,0 +1,84 @@
+/*.big-content{
+	background: url(image/bg3.jpg) fixed no-repeat;
+    background-size: cover;
+    color: #fff;
+    overflow: auto;
+    
+    width: 100%;
+    height: 1000px;
+    position: relative;
+
+}*/
+body {
+		background: url(image/bg4.jpg) fixed no-repeat;
+    background-size: cover;
+}
+textarea {
+    resize: vertical;
+    border: none;
+    overflow: hidden;
+    resize: none;
+    width: 100%;
+    outline: 0;
+    margin-top: 1em;
+    border-bottom: 3px solid #ccc;
+    background-color: transparent;
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+    margin-top: 2em;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 2.5em;
+}
+
+.title-litle {
+    color: rgb(75, 80, 175);
+    position: relative;
+    top: 3em;
+}
+.selection-choose {
+    position: relative;
+    margin-left: 3em;
+}
+
+.box-center {
+    margin-top: 13em;
+}
+
+.final-right {
+    float: right;
+    margin-bottom: 1em;
+}
+/*.progress {
+    width: 15%;
+    height: .5em;
+    position: relative;
+    top: 4em;
+    margin-left: 26em;
+}*/
+.text-up {
+    position: relative;
+    top: 4em;
+    font-size: .75em;
+    margin-left: 21%;
+}
+
+.btn-bot {
+    margin-top: 8em;
+    border-top: 2px solid gray;
+}
+
+button.btn.btn-outline-success {
+    margin-top: 5em;
+}
+
+nav.navbar.navbar-expand-sm.fixed-bottom {
+    background-color: rgba(0, 0, 0, 0.05);
+    
+}
